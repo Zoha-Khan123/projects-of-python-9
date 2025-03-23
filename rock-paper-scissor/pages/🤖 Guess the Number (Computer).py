@@ -2,9 +2,9 @@ import streamlit as st
 import random
 
 # Set page configuration
-st.set_page_config(page_title="Guess the Number (Computer)", page_icon="🎯")
+st.set_page_config(page_title="Guess the Number (Computer)", page_icon="🤖")
 
-st.title("🎯 :rainbow[Guess the Number (Computer)]")
+st.title("🤖 :rainbow[Guess the Number (Computer)]")
 
 # Display Instructions in a Container
 with st.container(border=True):

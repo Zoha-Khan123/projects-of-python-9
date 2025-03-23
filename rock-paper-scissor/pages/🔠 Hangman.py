@@ -15,13 +15,13 @@ def initialize_game():
 
 def display_game_status():
     st.title("🔠 :rainbow[Hangman Game]")
-    st.header(f"Guess the Word: {' '.join(st.session_state.store_dash)}")
+    st.subheader(f"Guess the Word: {' '.join(st.session_state.store_dash)}")
     container = st.container(border=True)
     # container.code(f"{lives_visual_dict[st.session_state.lives]}")
     container.code(lives_visual_dict[st.session_state.lives], language="plaintext")
     container.write(f"**Remaining Lives:** {st.session_state.lives}")
 
-@st.fragment
+
 def process_guess(user_guess):
     if st.session_state.lives <= 0:
         st.error("💀 Game Over! Please reset the game to play again.")
@@ -67,17 +67,17 @@ def main():
     initialize_game()
     display_game_status()
 
-    user_guess = st.text_input("Enter a letter:", max_chars=1)
-    col1,col2 = st.columns(2)
+    user_guess = st.text_input("Enter a letter:", max_chars=1).upper()
+
+    with st.container(border=True):
+        col1, col2 = st.columns(2)
 
     with col1:
-        if st.button("Check Letter"):
+        if st.button("Check Letter", use_container_width=True):
             process_guess(user_guess)
-           
-            
 
     with col2:
-        if st.button("Reset Game 🔄"):
+        if st.button("Reset Game 🔄", use_container_width=True):
             reset_game()
             st.rerun()
 
